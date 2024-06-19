@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 
 from pathlib import Path
+from decouple import config
+import dj_database_url
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,10 +26,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-021^khia=)v(n6p-lr955vatikes3n0b--mx9h4lfls!c8j*$%'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
 
 
 # Application definition
@@ -98,15 +102,17 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     },
-    'tw': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tenderwiz_db',
-        'USER': 'postgres',
-        'PASSWORD': 'ayaman',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    # 'tw': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'tenderwiz_db',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'ayaman',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432',
+    # }
 }
+
+DATABASES['default'] = dj_database_url.parse(config('DATABASE_URL'))
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
