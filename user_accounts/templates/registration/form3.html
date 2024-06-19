@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block css %}
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+{% endblock css %}
+
+{% block head %}
+{{ wizard.form.media }}
+{% endblock %}
+
+{% block content %}
+
+<div class="container regform">
+    <div class="regform_container">
+        <div id="plan-provinces" data-provinces="{{chosen_plan.provinces_num}}" style="display: none;"></div>
+        <table class="mb-3" style="width: 100%;">
+            <tr>
+                <td><p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p></td>
+                <td><h5>Choose Business Keywords</h5></td>
+            </tr>
+        </table>
+        <form action="" method="post">{% csrf_token %}
+
+            <div class="formfields">
+                {{ wizard.management_form }}
+                {% if wizard.form.forms %}
+                    {{ wizard.form.management_form }}
+                    {% for form in wizard.form.forms %}
+                        {{ form.as_p }}
+                    {% endfor %}
+                {% else %}
+                    {{ wizard.form.as_p }}
+                    
+                {% endif %}
+            </div>
+    
+            <div style="text-align: right;">
+                {% if wizard.steps.prev %}
+                <button name="wizard_goto_step" type="submit" class="btn btn-secondary" value="{{ wizard.steps.first }}">{% translate "first step" %}</button>
+                <button name="wizard_goto_step" type="submit" class="btn btn-secondary" value="{{ wizard.steps.prev }}">{% translate "prev step" %}</button>
+                {% endif %}
+                <input type="submit" class="btn btn-info" value="{% trans "submit" %}"/>
+            </div>
+
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+{% endblock js %}

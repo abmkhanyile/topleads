@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Registration success{% endblock %}
+
+
+{% block content %}
+
+<div class="page_header">     
+</div>
+
+<div class="container regform" style="min-height: 100vh;">
+    <h4 class="text-success">Thank you for registering. Please proceed to make payment below.</h4>
+    {{subscription.pymnt_ref}}
+    
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Login{% endblock %}
+
+{% block homepage_banner %}
+{% include 'banner.html' with page='Login' only %}
+{% endblock homepage_banner  %}
+
+{% block content %}
+
+        <div class="formcontainer container page">
+
+                {% include 'form-errors.html' %}
+
+                <form class="login-form" action="{% url 'user_accounts:auth' %}" method="post">{% csrf_token %}
+
+
+                    {% if form.errors %}
+                    <p class="error">Sorry, that's not a valid username and password</p>
+                    {% endif %}
+                    
+                     
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <span class="input-group-text"><i class="lni-user"></i></span>                                  
+                            </div>
+                        </div>
+                        <input class="form-control" type="email" placeholder="Email" name="email" value="" id="email" autocomplete="current-password">
+                    </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <span class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></span>                                  
+                                </div>
+                            </div>
+                            <input class="form-control" type="password" placeholder="Password" name="password" value="" id="password" autocomplete="current-password">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="input-group-text"><i class="fa fa-eye-slash" id="togglePassword" onclick="hide_show_pwd(this)" style="cursor: pointer"></i></span>
+                                </div>
+                            </div>
+                        </div>
+
+                                     
+                    
+                    {% if request.GET.next %}
+                        <input type="hidden" name="next" value="{{ request.GET.next }}">
+                    {% endif %}
+
+                    <input type="submit" class="btn btn-secondary btn-sm" value="login" style="float: right;" />
+                    <a href="{% url 'user_accounts:password_reset'%}">Forgot Password</a>
+
+
+                    
+                </form>
+            
+
+    </div>
+
+
+
+{% endblock %}

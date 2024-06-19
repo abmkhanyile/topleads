@@ -1,0 +1,38 @@
+{% extends 'dashboard_base.html' %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock title %}
+
+{% block dashboard %}
+<div class="page-content">
+  <div class="row">
+    <div class="col-12 col-xl-12 stretch-card">
+      <div class="card overflow-hidden content-container">
+        <div class="card-body">
+                    
+          <div class="row">
+            <div class="col-sm-8">
+              <h6 class="card-title mb-0">Matched Tenders</h6>
+              <div class="matched-tenders">
+                <table class="table">
+                  {% for tender in matched_tenders %}
+                  <tr>
+                    <td>{{tender.tender}}</td>
+                    <td>ljsdkfjls</td>
+                  </tr>
+                  {% endfor %}
+                </table>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <h6 class="card-title mb-0">Provinces</h6>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div> 
+  <!-- row -->
+</div>
+{% endblock dashboard %}

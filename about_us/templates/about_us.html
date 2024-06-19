@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}About Us{% endblock %}
+
+{% block homepage_banner %}
+{% include 'banner.html' with page='About Us' only %}
+{% endblock homepage_banner %}
+
+{% block content %}
+
+<div class="container page">
+    {{about.about|safe}}
+</div>
+    
+
+{% endblock %}

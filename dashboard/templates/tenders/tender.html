@@ -1,0 +1,87 @@
+{% extends 'dashboard_base.html' %}
+{% load static %}
+{% block title %}Tender{% endblock title %}
+
+{% block dashboard %}
+<div class="page-content">
+    <div class="row">
+      <div class="col-12 col-xl-12 stretch-card">
+        <div class="card overflow-hidden content-container">
+          <div class="card-body tendercontainer">
+            <div class="d-flex justify-content-between align-items-baseline mb-4 mb-md-3">
+              <h6 class="card-title mb-0">{{tender.summary}}</h6>
+              <div class="dropdown">
+                <a type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                  <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="eye"
+                      class="icon-sm me-2"></i> <span class="">View</span></a>
+                  <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="edit-2"
+                      class="icon-sm me-2"></i> <span class="">Edit</span></a>
+                  <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="trash"
+                      class="icon-sm me-2"></i> <span class="">Delete</span></a>
+                  <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="printer"
+                      class="icon-sm me-2"></i> <span class="">Print</span></a>
+                  <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="download"
+                      class="icon-sm me-2"></i> <span class="">Download</span></a>
+                </div>
+              </div>
+            </div>
+
+            {{tender.description|safe}}
+                      
+            <!-- <table class="table table-sm table-responsive">
+                <tr>
+                    <td>Ref Number</td>
+                    <td>{{tender.refNum}}</td>
+                </tr>
+                <tr>
+                    <td>Date Published</td>
+                    <td>{% if tender.datePublished == None %}N/A{% else %}{{tender.datePublished}}{% endif %}</td>
+                </tr>
+                <tr>
+                    <td>Closing Date</td>
+                    <td><span class="text-danger">{{tender.closingDate}}</span></td>
+                </tr>
+                <tr>
+                    <td>Site Inspection Date</td>
+                    <td><span class="text-success">{% if tender.siteInspectionDate == None %}N/A{% else %}{{tender.siteInspectionDate}}{% endif %}</span></td>
+                </tr>
+                <tr>
+                    <td>Site Inspection Address</td>
+                    <td>{% if tender.siteInspectionAddress == None %}N/A{% else %}{{tender.siteInspectionAddress}}{% endif %}</td>
+                </tr>
+                <tr>
+                    <td>Ref Number</td>
+                    <td>{% if tender.enquiries == None %}N/A{% else %}{{tender.enquiries}}{% endif %}</td>
+
+                </tr>
+                <tr>
+                    <td>Ref Number</td>
+                    <td>{% if tender.description == None %}N/A{% else %}{{tender.description|safe}}{% endif %}</td>
+                </tr>
+                <tr>
+                    <td>Ref Number</td>
+                    <td>{{tender.refNum}}</td>
+                </tr>
+                <tr>
+                    <td>Ref Number</td>
+                    <td>{{tender.refNum}}</td>
+                </tr>
+                <tr>
+                    <td>Ref Number</td>
+                    <td>{{tender.refNum}}</td>
+                </tr>
+            </table> -->
+
+
+          </div>
+        </div>
+      </div>
+    </div> <!-- row -->
+  
+  
+  </div>
+{% endblock dashboard %}

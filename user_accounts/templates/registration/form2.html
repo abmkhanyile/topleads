@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block head %}
+{{ wizard.form.media }}
+{% endblock %}
+
+{% block content %}
+
+<div class="container regform">
+    <div class="regform_container">
+        <table class="mb-3" style="width: 100%;">
+            <tr>
+                <td><p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p></td>
+                <td><h5>Service Provider Details</h5></td>
+            </tr>
+        </table>
+        <form action="" method="post">{% csrf_token %}
+        <div class="formfields">
+        {{ wizard.management_form }}
+        {% if wizard.form.forms %}
+            {{ wizard.form.management_form }}
+            {% for form in wizard.form.forms %}        
+                    {{ form.as_p }}            
+            {% endfor %}
+        {% else %}
+            {{ wizard.form.as_p }}
+                        
+        {% endif %}
+        </div>
+        <div style="text-align: right;">
+            {% if wizard.steps.prev %}
+            <button name="wizard_goto_step" type="submit" class="btn btn-secondary" value="{{ wizard.steps.first }}">{% translate "first step" %}</button>
+            <button name="wizard_goto_step" type="submit" class="btn btn-secondary" value="{{ wizard.steps.prev }}">{% translate "prev step" %}</button>
+            {% endif %}
+            <input type="submit" class="btn btn-info" value="{% trans "next" %}"/>
+        </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

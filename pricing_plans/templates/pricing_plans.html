@@ -1,0 +1,18 @@
+<div class="col-lg-3 col-md-6 col-xs-12">
+    <div class="table" style="min-height: 550px !important;">
+    <div class="icon">
+    <i class="lni-gift"></i>
+    </div>
+    <div class="pricing-header">
+    <p class="price-value">R{{plan.price}} p/a</p>
+    </div>
+    <div class="title">
+    <h3>{{plan.name}}</h3>
+    </div>
+    <div class="benefits">
+      {{plan.benefits|safe}}
+    </div>
+    
+    <a href="{% url 'user_accounts:register' pk=plan.pk %}" class="btn btn-common">Choose Plan</a>
+    </div>
+</div>

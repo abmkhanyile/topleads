@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% block css %}
+<style>
+.description{
+  padding: 0px !important;
+}
+</style>
+{% endblock css %}
+
+{% block homepage_banner %}
+        
+<div id="hero-area">
+  <div class="overlay"></div>
+  <div class="container">
+  <div class="row justify-content-center">
+  <div class="col-md-12 col-lg-9 col-xs-12 text-center">
+  <div class="contents">
+  <h1 class="head-title">Welcome to The Largest <span class="year">Leads Portal</span></h1>
+  <p>Unlock limitless business opportunities with our cutting-edge lead generation platform</p>
+  <div class="search-bar">
+  <div class="search-inner">
+  <form class="search-form">
+  <div class="form-group">
+  <!-- <input type="text" name="customword" class="form-control" placeholder="Search leads and tenders"> -->
+  {{search_form.searchField}} 
+  </div>
+  <div class="form-group inputwithicon">
+  <div class="select">
+    {{search_form.categorySelectionField}}
+  <!-- <select>
+  <option value="none">Locations</option>
+  <option value="none">New York</option>
+  <option value="none">California</option>
+  <option value="none">Washington</option>
+  <option value="none">Birmingham</option>
+  <option value="none">Chicago</option>
+  <option value="none">Phoenix</option>
+  </select> -->
+  </div>
+  <i class="lni-target"></i>
+  </div>
+  <div class="form-group inputwithicon">
+  <div class="select">
+    {{search_form.provinceSelectionField}}
+  </div>
+  <i class="lni-menu"></i>
+  </div>
+  <button class="btn btn-common" type="button"><i class="lni-search"></i> Search Now</button>
+  </form>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+{% endblock homepage_banner %}
+
+{% block content %}
+  
+<!-- <section id="categories">
+  <div class="container">
+  <div class="row justify-content-center">
+  <div class="col-lg-10 col-md-12 col-xs-12">
+  <div id="categories-icon-slider" class="categories-wrapper owl-carousel owl-theme">
+    {% for category in categories %}
+      <div class="item">
+      <a href="#">
+      <div class="category-icon-item">
+      <div class="icon-box">
+      <div class="icon">
+      <img src="{{category.retcat_icon}}" alt="">
+      
+      </div>
+      <h4>{{category.catDescription}}</h4>
+
+      </div>
+      </div>
+      </a>
+      </div>
+  {% endfor %}
+ 
+  </div>
+  </div>
+  </div>
+  </div>
+  </section> -->
+
+  <section id="tenders-container" style="margin-top: -85px;">
+    <h1 class="section-title">Current Tenders</h1>
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 15%;">Ref</th>
+          <th scope="col" style="width: 55%;">Description</th>
+          <th scope="col" style="width: 15%;">Site Inspection Date</th>
+          <th scope="col" style="width: 15%;">Closing Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for tender in page_obj %}
+        <tr style="font-size: .8em;">
+          <th scope="row">{{tender.refNum}}</th>
+          <td>
+            {% if request.user.is_authenticated == False %}
+            <a href="javascript:void(0)" data-toggle="modal" data-target="#login_modal">{{tender.summary|upper|truncatechars:260}}</a>
+            {% else %}
+            <a href="javascript:void(0)">{{tender.summary|upper}}</a>
+            {% endif %}
+          </td>
+          <td>
+            {% if tender.siteInspectionDate is None %}
+              N/A
+            {% else %}
+              {{tender.siteInspectionDate}}
+            {% endif %}
+          </td>
+          <td>{{tender.closingDate}}</td>
+        </tr>
+        {% empty %}
+            <span class="text-danger">No available tenders yet.</span>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% include 'paginator.html' %}
+
+  </section>
+
+
+
+{% endblock %}
+
+{% block js %}
+
+{% endblock js %}

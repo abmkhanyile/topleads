@@ -1,0 +1,257 @@
+:root {
+    --primary:#39a0eb;
+    --secondary: #FFF0E6;
+    --light: #a6a6a6;
+    --dark: #001D23;
+}
+
+.logotxt{
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 40px;
+    font-family: sans-serif;
+}
+
+.page{
+    margin-top: 35px;
+    margin-bottom: 35px;
+    min-height: 100vh;
+}
+
+.page > h2 {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.page > h3 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.process-illustration{
+    overflow: hidden;
+    align-items: left;
+}
+
+.process-illustration > img{
+    width: auto;
+    height: 350px;
+    object-fit: cover;
+    float: right;
+}
+
+.benefits > ul{
+    text-align: center;
+    padding: 0px;
+    margin-bottom: 20px;
+}
+
+.login-section{
+    background-color: #ddd;
+    padding: 5px 20px 5px 10px !important;
+    display: inline !important;
+    border-radius: 25px;
+
+}
+
+.formcontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#tenders-container{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding: 30px 15px;
+    width: 90%;
+    position: relative;
+    min-height: 100vh;
+    margin: auto;
+    border-radius: 5px;
+    margin-bottom: 40px;
+}
+
+#regform-container{
+    background-color: #FF6347;
+    color: #fff;
+    padding: 25px 15px;
+    border-radius: 25px;
+}
+
+
+/*** Footer ***/
+
+.footer .btn.btn-link {
+    display: block;
+    margin-bottom: 5px;
+    padding: 0;
+    text-align: left;
+    color: rgba(255,255,255,0.5);
+    font-weight: normal;
+    text-transform: capitalize;
+    transition: .3s;
+}
+
+.footer .btn.btn-link::before {
+    position: relative;
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: rgba(255,255,255,0.5);
+    margin-right: 10px;
+}
+
+.footer .btn.btn-link:hover {
+    color: var(--light);
+    letter-spacing: 1px;
+    box-shadow: none;
+}
+
+.footer .btn.btn-square {
+    color: rgba(255,255,255,0.5);
+    border: 1px solid rgba(255,255,255,0.5);
+}
+
+.footer .btn.btn-square:hover {
+    color: var(--secondary);
+    border-color: var(--light);
+}
+
+.footer .copyright {
+    padding: 25px 0;
+    font-size: 15px;
+    border-top: 1px solid rgba(256, 256, 256, .1);
+}
+
+.footer .copyright a {
+    color: var(--secondary);
+}
+
+.footer .copyright a:hover {
+    color: #FF6347;
+}
+
+.regform{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    min-height: 100vh;
+}
+
+.regform_container{
+    width: 50%;
+    margin-top: 30px;
+}
+@media only screen and (max-width: 768px) {
+    .regform_container{
+        width: 100%;
+        margin-top: 30px;
+
+    }
+}
+
+.formfields p{
+    padding-bottom: 10px;
+}
+
+.errorlist > li{
+    color: #d9534f;
+}
+
+
+.tenders-table > tbody > tr{
+    margin-bottom: 10px;
+    border: 1px solid #e9ecef;
+    padding: 10px 0px;
+
+}
+
+.tenders-table > tbody > tr > td, 
+.tenders-table > tbody > tr > th{
+    padding: 5px;
+}
+
+.tenders-table > tbody > tr{
+    border-left: 0px;
+    border-right: 0px;
+}
+
+.table_ {
+    --bs-table-color: var(--bs-body-color);
+    --bs-table-bg: transparent;
+    --bs-table-border-color: #e9ecef;
+    --bs-table-accent-bg: transparent;
+    --bs-table-striped-color: var(--bs-body-color);
+    --bs-table-striped-bg: #e9ecef;
+    --bs-table-active-color: var(--bs-body-color);
+    --bs-table-active-bg: #dee2e6;
+    --bs-table-hover-color: var(--bs-body-color);
+    --bs-table-hover-bg: #e9ecef;
+    width: 100%;
+    margin-bottom: 1rem;
+    color: var(--bs-table-color);
+    vertical-align: top;
+    border-color: #e9ecef;
+    caption-side: bottom;
+    border-collapse: collapse;
+    text-indent: initial;
+    border-spacing: 2px;
+    display: table;
+}
+
+
+@media only screen and (max-width: 576px) {
+    .search_btn{
+        width: 100%;
+
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .fcol, .scol{
+        display: none;
+
+    }
+}
+
+.content-container{
+    min-height: 100vh;
+}
+
+.tendercontainer table{
+    margin-left: 0px !important;
+}
+
+
+#pymnt-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.55);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#invoice-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 80%;
+    text-align: center;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    margin: 30px auto;
+    overflow: auto;
+}
